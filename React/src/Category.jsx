@@ -134,49 +134,49 @@ const Category = () => {
                         <b>Delete All</b>
                     </button>
                     <br />
+                    <div className="table table-bordered table-striped text-center">
+                        <table className="text-center ">
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Delete</th>
+                                <th>Update</th>
+                            </tr>
+                            {category.map((val, index) => {
+                                return (
+                                    <tr>
+                                        <td>{val.id}</td>
+                                        <td>{val.name}</td>
+                                        <td>{val.description}</td>
+                                        <td>
+                                            <button
+                                                className="btn btn-outline-danger"
+                                                onClick={() => {
+                                                    deleteCategory(val.id);
+                                                }}
+                                            >
+                                                <b> Delete</b>
+                                            </button>
+                                            <br />
+                                        </td>
+                                        <td>
+                                            <button
+                                                className="btn btn-outline-secondary"
+                                                onClick={() => {
+                                                    editCategory(val.id);
+                                                }}
+                                            >
+                                                <b> Edit</b>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                );
+                            })}
+                        </table>
+                    </div>
                 </div>
             )}
-            <div className="table table-bordered table-striped text-center">
-                <table className="text-center ">
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Delete</th>
-                        <th>Update</th>
-                    </tr>
-                    {category.map((val, index) => {
-                        return (
-                            <tr>
-                                <td>{val.id}</td>
-                                <td>{val.name}</td>
-                                <td>{val.description}</td>
-                                <td>
-                                    <button
-                                        className="btn btn-outline-danger"
-                                        onClick={() => {
-                                            deleteCategory(val.id);
-                                        }}
-                                    >
-                                        <b> Delete</b>
-                                    </button>
-                                    <br />
-                                </td>
-                                <td>
-                                    <button
-                                        className="btn btn-outline-secondary"
-                                        onClick={() => {
-                                            editCategory(val.id);
-                                        }}
-                                    >
-                                        <b> Edit</b>
-                                    </button>
-                                </td>
-                            </tr>
-                        );
-                    })}
-                </table>
-            </div>
         </div>
     );
 };

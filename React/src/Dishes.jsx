@@ -49,7 +49,7 @@ const Dishes = () => {
     };
     const deleteDish = (id) => {
         axios
-            .delete('dishes/' + id)
+            .delete('/dishes/' + id)
             .then((res) => {
                 console.log(res.data);
             })
@@ -186,53 +186,53 @@ const Dishes = () => {
                         <b>Delete All</b>
                     </button>
                     <br />
+                    <div className="table table-bordered table-striped text-center">
+                        <table className="text-center ">
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Description</th>
+                                <th>Category Id</th>
+                                <th>Delete</th>
+                                <th>Update</th>
+                            </tr>
+                            {dishes.map((val, index) => {
+                                return (
+                                    <tr>
+                                        <td>{val.id}</td>
+                                        <td>{val.name}</td>
+                                        <td>{val.price}</td>
+                                        <td>{val.description}</td>
+                                        <td>{val.cid}</td>
+                                        <td>
+                                            <button
+                                                className="btn btn-outline-danger"
+                                                onClick={() => {
+                                                    deleteDish(val.id);
+                                                }}
+                                            >
+                                                <b> Delete</b>
+                                            </button>
+                                            <br />
+                                        </td>
+                                        <td>
+                                            <button
+                                                className="btn btn-outline-secondary"
+                                                onClick={() => {
+                                                    editDish(val.id);
+                                                }}
+                                            >
+                                                <b> Edit</b>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                );
+                            })}
+                        </table>
+                    </div>
                 </div>
             )}
-            <div className="table table-bordered table-striped text-center">
-                <table className="text-center ">
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Description</th>
-                        <th>Category Id</th>
-                        <th>Delete</th>
-                        <th>Update</th>
-                    </tr>
-                    {dishes.map((val, index) => {
-                        return (
-                            <tr>
-                                <td>{val.id}</td>
-                                <td>{val.name}</td>
-                                <td>{val.price}</td>
-                                <td>{val.description}</td>
-                                <td>{val.cid}</td>
-                                <td>
-                                    <button
-                                        className="btn btn-outline-danger"
-                                        onClick={() => {
-                                            deleteDish(val.id);
-                                        }}
-                                    >
-                                        <b> Delete</b>
-                                    </button>
-                                    <br />
-                                </td>
-                                <td>
-                                    <button
-                                        className="btn btn-outline-secondary"
-                                        onClick={() => {
-                                            editDish(val.id);
-                                        }}
-                                    >
-                                        <b> Edit</b>
-                                    </button>
-                                </td>
-                            </tr>
-                        );
-                    })}
-                </table>
-            </div>
         </div>
     );
 };
