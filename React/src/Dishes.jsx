@@ -115,7 +115,10 @@ const Dishes = () => {
                         />
                         <br />
                         <b className="subHeading">Select Category : </b>
-                        <select name="cid">
+                        <select
+                            name="cid"
+                            className="form-select d-inline-flex w-50"
+                        >
                             <option selected>Select</option>
                             {category.map((val) => {
                                 return (
@@ -165,7 +168,10 @@ const Dishes = () => {
                         />
                         <br />
                         <b className="subHeading">Select Category : </b>
-                        <select name="cid">
+                        <select
+                            name="cid"
+                            className="form-select d-inline-flex w-50"
+                        >
                             <option selected>Select</option>
                             {category.map((val) => {
                                 return (
